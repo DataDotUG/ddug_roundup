@@ -116,15 +116,15 @@ class DataugCallback(Action):
                                    authorization_response=request_url)     
         self.client.session_api.set(oauth_token=token)                             
         
-        print '==========================================================='
+        #print '==========================================================='
         # print "cleint id %s \ntoken_url %s"  % (client_id, token_url)
         # print "cleint secret %s \n request_url %s" % (client_secret, request_url)
-        print "token %s\n" % (token)        
+        #print "token %s\n" % (token)        
         # print authorization_url
         # print token
         # print urlparse(self.client.base)
         # print self.get_request_path()
-        print '============================================================'
+        #print '============================================================'
 
         login_url = "%s?@action=login" % (self.client.base)
 

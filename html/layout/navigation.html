@@ -108,6 +108,7 @@
 {% if  request.user.username == 'anonymous' %}
   <form method="POST" action='{{ request.base }}'>
     <ul class='nav nav-list'>
+{#
       <li class='nav-header'>
         <i class='icon-user'></i>{{ i18n.gettext('Login') }}
       </li>
@@ -124,7 +125,9 @@
       </li>
       <li>
         <input type="submit" value="{{ i18n.gettext('Login') }}" class='btn btn-inverse'>
+<a class="btn btn-inverse" href="home?@action=login" role="button">{{ i18n.gettext('Login Just?') }}</a>
       </li>
+
       <li class='vspace-one'>
         {% if request.user.hasPermission('Register', 'user') %}
           <a href="user?@template=register">{{ i18n.gettext('Register') }}</a>
@@ -133,9 +136,10 @@
       <li>
         <a href="user?@template=forgotten">{{ i18n.gettext('Lost your login?') }}</a>
       </li>
+#}
       <li>
-        <a href="home?@action=login">{{ i18n.gettext('Login Just?') }}</a>
-
+       {# <a href="home?@action=login">{{ i18n.gettext('Login') }}</a> #}
+        <a class="btn btn-inverse  btn-block" href="home?@action=login" role="button">{{ i18n.gettext('Login') }}</a>
       </li>
     </ul>
     <input type="hidden" name="@action" value="{{ i18n.gettext('Login') }}">
@@ -179,7 +183,9 @@
   </li>
 </ul>
 {{ utils.html_calendar(request) }}
+{# todo to be removed
 <textarea rows=5 cols=60 >
 {{ utils.totalTimeSpent(context.times) }}
 </textarea>
+#}
 <!-- SHA: 9f4ddd6106e9d02f1d4be1d153b30bbe8ad8645b -->

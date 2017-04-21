@@ -17,4 +17,5 @@ tests/.coverage
 build/
 tests/report/
 config.ini
+db/files/
 
