@@ -51,6 +51,40 @@
     </li>
   </ul>
   <hr>
+
+{# TODO : Fix issue search
+
+  <ul class='nav nav-list'>
+    <li class='nav-header'>
+      <i class='icon-fire'></i>{{ i18n.gettext('Open Issues') }}
+    </li>
+    <li>
+       <form name="searchform" method="get" action="issue" class='navbar-search pull-right'>
+         <input type="hidden" name="@columns" value="{{ bug_columns_showall }}"/>
+         <input type="hidden" name="@sort" value="-activity">
+         <input type="hidden" name="@group" value="priority">
+         <input type="hidden" name="@filter" value="status">
+         <input type="hidden" name="status" value="{{ bug_status_notclosed }}"/>
+         <input class="input-medium search-query" id="search-text" type="search" name="@search_text">
+         <input type="submit" value="{{ i18n.gettext('search in open issues') }}" name="submit" class='btn'>
+       </form>
+
+
+<form class="navbar-search pull-right" name="searchform" method="get" action="issue">
+<input name="@columns" value="" type="hidden">
+<input name="@sort" value="-activity" type="hidden">
+<input name="@group" value="priority" type="hidden">
+
+<input name="@filter" value="status" type="hidden">
+<input name="status" value="" type="hidden">
+<input id="search-text" class="input-medium search-query" name="@search_text" type="search">
+<input class="btn" value="search in open bugs" name="submit" type="submit">
+</form>
+    </li>
+  </ul>
+
+  <hr>
+#}
 {% else %}
   <p class='text-error'>{{ i18n.gettext("You don't have permission to view issues.") }}</p>
 {% endif %}
@@ -182,10 +216,7 @@
     <a href="http://www.roundup-tracker.org">Roundup docs</a>
   </li>
 </ul>
+{#
 {{ utils.html_calendar(request) }}
-{# todo to be removed
-<textarea rows=5 cols=60 >
-{{ utils.totalTimeSpent(context.times) }}
-</textarea>
 #}
 <!-- SHA: 9f4ddd6106e9d02f1d4be1d153b30bbe8ad8645b -->

@@ -1,0 +1,148 @@
+/* =====================================================
+   The "account masthead" bar across the top of the site
+   ===================================================== */
+
+.account-masthead {
+    background-color: rgb(255, 255, 255);
+
+}
+/* The "bubble" containing the number of new notifications. */
+.account-masthead .account .notifications a span {
+  background-color: white;
+}
+/* The text and icons in the user account info. */
+.account-masthead .account ul li a {
+  color: rgba(11, 4, 3, 0.6);
+}
+/* The user account info text and icons, when the user's pointer is hovering
+   over them. */
+.account-masthead .account ul li a:hover {
+  color: rgba(31, 165, 164, 0.7);
+  background-color: white;
+}
+
+.account-masthead .account ul li {
+    border-left: 1px solid #dddddd;
+    display: block;
+    float: left;
+}
+
+.account-masthead {
+    background: none;
+}
+
+[role="main"], .main {
+    background: none;
+    padding-top: 10px;
+}
+.navbar.container {
+    margin-top: 0px;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  font-size: 15px;
+  height: 43px;
+}
+body, body [role="main"], body .main{
+  background-image: none;
+  color: #240F0B;
+}
+.block-ckan-search{
+  display: none;
+}
+.navbar .nav > li > a{
+  text-shadow: none;
+  padding-bottom: 19.5px;
+  padding-top: 19.5px;
+}
+
+body [role="main"] .primary {
+    width: 80%;
+}
+body [role="main"] .secondary {
+    width: 19.9%;
+}
+.dataset-heading a{
+  color: #1FA5A4;
+}
+.main .resource-item{
+  padding: 15px 10px 20px 60px;
+}
+.region-footer .block-multiblock{
+  float: right;
+}
+.region-footer .search-form {
+    border-bottom: medium none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+form.search-form input{
+  border-color: #1FA5A4;
+}
+form.search-form input:focus{
+  border-color: #136766;
+}
+.footer{
+    border-top: medium none;
+    margin-top: 0;
+}
+
+
+/* This is the modal form that sometimes pops up 
+  for example when you inspect the API */
+
+.modal {
+  left: inherit;
+  right: 10%;
+  width: 80%;
+}
+
+.modal-body {
+  max-height: auto;
+}
+
+.node-blog.node-teaser {
+    border-radius: 6px;
+    box-shadow: 1px 1px 2px 1px #f2f2f2;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.breadcrumb {
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    list-style: outside none none;
+    margin-bottom: 21px;
+    padding: 8px 15px;
+}
+
+
+.account-masthead .account ul li a {
+    display: block;
+    font-size: 13px;
+    padding: 0 10px;
+    line-height: 31px;
+}
+
+
+.account-masthead {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.account-masthead {
+    min-height: 30px;
+    color: #ffffff;
+}
+.account-masthead .account {
+    float: right;
+}
+
+
+body {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+}
+

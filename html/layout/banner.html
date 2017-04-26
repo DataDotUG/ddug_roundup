@@ -1,17 +1,100 @@
-<div class="navbar">
-  <div class='container-fluid'>
-    <div class='navbar-inner'>
-       <a href="/" class='brand'><i class='icon-home'></i> {{ i18n.gettext('Roundup Demo Tracker') }}</a>
-       <form name="searchform" method="get" action="bug" class='navbar-search pull-right'>
-         <input type="hidden" name="@columns" value="{{ bug_columns_showall }}"/>
-         <input type="hidden" name="@sort" value="-activity">
-         <input type="hidden" name="@group" value="priority">
-         <input type="hidden" name="@filter" value="status">
-         <input type="hidden" name="status" value="{{ bug_status_notclosed }}"/>
-         <input class="input-medium search-query" id="search-text" type="search" name="@search_text">
-         <input type="submit" value="{{ i18n.gettext('search in open bugs') }}" name="submit" class='btn'>
-       </form>
-    </div> <!-- navbar-inner -->
-  </div> <!-- container-fluid -->
-</div> <!-- navbar -->
+
+  <header class="account-masthead">
+    <div class="container">
+
+
+          <div class="account avatar authed" data-module="me" data-me="c548d6fd-e51a-44e2-9c9f-ecd4a66f8c8e">
+            <ul class="unstyled">
+
+ {% if  request.user.username == 'anonymous' %}
+      <li>
+        <a href="home?@action=login">{{ i18n.gettext('Login') }}</a>
+      </li>
+{% else %}
+    <li>
+      <a href="{{ request.indexargs_url('issue', {
+        '@sort': '-activity',
+        '@group': 'priority',
+        '@filter': 'status,assignedto',
+        '@columns': 'id,activity,title,creator,status',
+        '@search_text': '',
+        'status': status_notresolved,
+        'assignedto': request.user.id,
+        '@dispname': i18n.gettext('Your Issues'),
+      }) }}">{{ i18n.gettext('Your Issues') }}</a>
+    </li>
+    <li>
+      <a href="{{ request.indexargs_url('', {'@action':'logout'}) }}">{{ i18n.gettext('Logout') }}</a>
+    </li>
+{% endif %}             
+
+            </ul>
+
+
+
+          </div>
+
+
+    </div>
+  </header>
+
+
+
+<header class="navbar container navbar-default" role="banner" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+            <a title="Home" href="/" class="logo navbar-btn pull-left">
+        <img alt="Home" src="@@file/logo.png" style="width: 250px; height: 42px;">
+      </a>
+
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+          <div class="navbar-collapse collapse">
+        <nav role="navigation">
+                      <ul class="menu nav navbar-nav">
+<li><a href="http://www.data.ug/">Home</a></li>
+
+<li class="first leaf"><a href="http://maps.data.ug">Maps</a></li>
+
+
+
+  <li><a href="http://www.data.ug//dataset">Datasets</a></li>
+<li><a href="http://www.data.ug/feedback">Request</a></li>
+<li class="active"><a href="http://forum.data.ug">Community</a></li>
+<li><a href="http://www.data.ug/blog">Blog</a></li>
+<li><a href="http://www.data.ug/about">About</a></li>
+
+</ul>                                            
+<div class="region region-navigation">
+    <section class="block block-ckan-search clearfix" id="block-ckan-search-ckan-search-block">
+
+
+  <form action="http://catalog.data.ug/dataset" class="search-form form-inline" method="get" role="search">
+  <div class="input-group">
+    <input type="search" placeholder="Agriculture" class="search-field form-control" name="q" value="" data-strings="{&quot;targets&quot;:[&quot;Agriculture&quot;,&quot;Fishing&quot;,&quot;Housing&quot;]}" title="Example searches: Agriculture,Fishing,Housing" id="search-header">
+    <input type="hidden" value="score desc, name asc" name="sort">
+      <span class="input-group-btn">
+      <button class="search-submit btn btn-default" type="submit">
+           <i class="icon-search"></i>
+           <span class="sr-only">Search</span>
+       </button>
+    </span>
+  </div>
+</form>
+</section> <!-- /.block -->
+  </div>
+                  </nav>
+      </div>
+      </div>
+</header>
+
+
+
 <!-- SHA: 2ffe42aa4b8c8766b49b090eb16c6d13481c9e1c -->

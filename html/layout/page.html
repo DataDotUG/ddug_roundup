@@ -1,20 +1,44 @@
 <!doctype html>
-<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Roundup is a python-based, MIT licensed issue-tracking system with command-line, web and e-mail interfaces">
-    <meta name="viewport" content="width=device-width">
+
+
     <title>{% block head_title %}{% endblock %}</title>
+
     <link rel="stylesheet" type="text/css" href="@@file/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="@@file/bootstrap-responsive.min.css">
     <link rel="stylesheet" type="text/css" href="@@file/style.css">
+
+
+    <link rel="stylesheet" type="text/css" href="@@file/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="@@file/site_base.css">
+    <link rel="shortcut icon" href="@@file/favicon.png" type="image/png">
     {% block extracss %} {% endblock %}
   </head>
-  <body>
+
+
+  <body data-site-root="http://localhost:5000/" data-locale-root="http://localhost:5000/" >
+
+
+    <div class="hide"><a href="#content">Skip to content</a></div>
+
+
+
     {% block navbar %}
       {% include 'layout/banner.html' %}
-    {% endblock %}
+    {% endblock %}    
+
+    <div role="main">
+      <div id="content" class="container">
+
+
+            <div class="flash-messages">
+
+
+
+            </div>
+            <div class="toolbar">
+            </div>
+          <div class="row wrapper no-nav">
 
     {% block page_content %}
       <div class='container-fluid'>
@@ -48,13 +72,20 @@
       </div>
     {% endblock %}
 
+
+
+          </div>
+
+      </div>
+    </div>
+
+
     {% block footer %}
       {% include 'layout/footer.html' %}
-    {% endblock %}
+    {% endblock %}  
 
     <script src='@@file/jquery-1.9.0.min.js'></script>
     <script src='@@file/bootstrap.min.js'></script>
     {% block extrajs %} {% endblock %}
-  </body>
+</body>
 </html>
-<!-- SHA: e26d1bcf22b578835b5227ffc4096cd912c7caa6 -->
