@@ -1,6 +1,7 @@
 from roundup.cgi.actions import Action
 from requests_oauthlib import OAuth2Session
-from roundup.cgi.exceptions import *
+from roundup import date, password
+from roundup.cgi import exceptions
 from urlparse import urlparse
 import json
 
@@ -95,7 +96,7 @@ class DataugLogin(Action):
         authorization_url, state = dataug.authorization_url(authorization_base_url)
         self.client.session_api.set(oauth_state=state)
 
-        raise Redirect, authorization_url        
+        raise exceptions.Redirect, authorization_url
 
 class DataugCallback(Action):
     def handle(self):
@@ -118,7 +119,7 @@ class DataugCallback(Action):
 
         login_url = "%s?@action=login" % (self.client.base)
 
-        raise Redirect, login_url
+        raise exceptions.Redirect, login_url
       
     def get_request_url(self):
         url = urlparse(self.client.base)
