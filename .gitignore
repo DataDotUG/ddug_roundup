@@ -18,4 +18,6 @@ build/
 tests/report/
 config.ini
 db/files/
+apache/
+extensions/config.ini
 
