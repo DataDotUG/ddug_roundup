@@ -3,12 +3,14 @@ from requests_oauthlib import OAuth2Session
 from roundup import date, password
 from roundup.cgi import exceptions
 from urlparse import urlparse
+import logging
 import json
 
 
 import os
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
+log = logger = logging.getLogger('roundup')
 
 
 class DataugLogin(Action):
@@ -122,10 +124,11 @@ class DataugCallback(Action):
         raise exceptions.Redirect, login_url
       
     def get_request_url(self):
-        url = urlparse(self.client.base)
+        request_url = "%shome?%s" % (self.client.base, self.client.env['QUERY_STRING'])
 
-        # print urlparse() 
-        return "%s://%s%s" % (url.scheme, url.netloc, self.client.request.path)
+        log.debug("+++Request path:%s" % request_url)
+
+        return request_url
 
 def init(instance):
     instance.registerAction('login', DataugLogin)
